@@ -18,22 +18,30 @@
         <!-- Conditionally render login or logout links -->
         {{#if loggedIn}}   
         <a href="/profile">profile</a> |        
-        <button class="btn btn-danger my-2 m-sm-1" id="logout-button" type="submit">Logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}  
         <button class="btn btn-light my-2 m-sm-1" id="home-button" type="submit">Home</button>
         <button class="btn btn-light my-2 m-sm-1" id="dashboard-button" type="submit">Dashboard</button>
+        <button class="btn btn-danger my-2 m-sm-1" id="logout-button" type="submit">Logout</button>
+        {{else}}
+        <button class="btn btn-light my-2 m-sm-1" id="home-button" type="submit">Home</button>
+        <button class="btn btn-light my-2 m-sm-1" id="dashboard-button" type="submit">Dashboard</button>
+        <a href="/login" class="btn btn-success my-2 m-sm-1" id="login-button" type="submit">Login</a>
+        {{/if}}
       </form>
     </nav>
   </header>
   <main class='p-1 mb-4 text-black text-center'>
-    <div class = 'container text-center m-10' id="banner">
-      <h4>My Current Team</h4>
-    </div>
     <div class="row" id="sortable">
     <!-- Render the sub layout -->
+    {{#if loggedIn}} 
+    <div class = 'container text-center m-10' id="banner">
+      <h4>Blog Posts</h4>
+    </div>
     {{{ body }}}
+    {{else}}
+    <div class = 'container text-center m-10' id="banner">
+      <h4>Log In to See Blog Posts</h4>
+    </div>
+    {{/if}}
     </div>
   </main>
   <footer>
