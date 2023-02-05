@@ -16,7 +16,7 @@
       <a class="mx-2 navbar-brand"><h2>The Tech Blog</h2></a>
       <form class="d-inline-flex">
         <!-- Conditionally render login or logout links -->
-        {{#if loggedIn}}   
+        {{#if logged_in}}   
         <a href="/profile">profile</a> |        
         <button class="btn btn-light my-2 m-sm-1" id="home-button" type="submit">Home</button>
         <button class="btn btn-light my-2 m-sm-1" id="dashboard-button" type="submit">Dashboard</button>
@@ -31,17 +31,7 @@
   </header>
   <main class='p-1 mb-4 text-black text-center'>
     <div class="row" id="sortable">
-    <!-- Render the sub layout -->
-    {{#if loggedIn}} 
-    <div class = 'container text-center m-10' id="banner">
-      <h4>Blog Posts</h4>
-    </div>
     {{{ body }}}
-    {{else}}
-    <div class = 'container text-center m-10' id="banner">
-      <h4>Log In to See Blog Posts</h4>
-    </div>
-    {{/if}}
     </div>
   </main>
   <footer>
@@ -49,7 +39,6 @@
   </footer>
 
   <!-- Render script for logged in users only -->
-  {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   <script src="./src/template.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -59,7 +48,6 @@
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
     crossorigin="anonymous">
   </script>
-  {{/if}}
 </body>
 
 </html>
