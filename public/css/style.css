@@ -34,6 +34,8 @@ body {
 }
 
 .card-sub {
+  display: flex;
+  justify-content: space-between;
   cursor: move;
   border: none;
   background-color: var(--lightBlue);
@@ -71,11 +73,8 @@ body {
 #user-prof-pic {
   width: 35px;
   height: 35px;
-  border-radius: 30px;  
-  display: flex;
-  justify-content: space-between;
-  margin-left: 10px;
-  padding: 2.5px;
+  border-radius: 30px; 
+  margin: 2.5px 2.5px 4px 2.5px;
 }
 
 .employee-name {
@@ -84,6 +83,11 @@ body {
   top: -58px;
 }
 
+#edit-post-btn {
+  height: 35px;
+  margin: 2.5px 4px 2.5px 2.5px;
+  z-index: 100;
+}
 
 
 .employee-details {
