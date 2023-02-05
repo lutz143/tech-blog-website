@@ -89,6 +89,12 @@ body {
   z-index: 100;
 }
 
+#update-post-btn {
+  height: 35px;
+  margin: 2.5px 4px 2.5px 2.5px;
+  z-index: 100;
+}
+
 
 .employee-details {
   position: relative;

@@ -1,5 +1,4 @@
 const newFormHandler = async (event) => {
-  console.log('button pushed');
   event.preventDefault();
 
   const title = document.querySelector('#post-title').value.trim();
