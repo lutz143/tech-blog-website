@@ -10,7 +10,10 @@
   <div id="sortable">
     <div id="card-title">
       <div class="card-sub"> <img class="card-img-top img-fluid d-flex justify-content-between" id="user-prof-pic" src="./images/Josh Lutz_DC.jpg" alt="Profile Image">
-      <a href="/profile" class="btn btn-light d-flex justify-content-between" id="update-post-btn">Update</a>
+      <div class="edit-buttons">
+        <a href="/profile" class="btn btn-light d-flex justify-content-between" id="update-post-btn">Update</a>
+        <a class="btn btn-danger d-flex justify-content-danger" id="delete-post-btn">Delete</a>
+      </div>
       {{!-- <a class="btn btn-light d-flex justify-content-between" id="update-post-btn">Update</a> --}}
     </div>
       <div class="card-block">
@@ -29,3 +32,4 @@
 </div>
 
 <script src="/js/editPost.js"></script>
+<script src="/js/deletePost.js"></script>
