@@ -8,11 +8,22 @@
             </div>
               <div class="card-block">
                 <div class="card-header">                
-                  <h4 class="employee-name">{{post.title}}</h4>
+                  <a href="/comments/{{post.id}}"><h4 class="employee-name">{{post.title}}</h4></a>                  
                   <div class="employee-details">
                     <div class="user-name">Created by {{post.user.username}} on {{format_date post.date_created}}</div>            
                     <div class="post">{{post.post_content}}</div>
                   </div>
+                </div>
+                  {{#if comments}} 
+                    {{#each comments}}              
+                    {{!-- <div class="card-header">  --}}
+                      {{!-- <h4 class="employee-name">{{post.title}}</h4> --}}
+                      <div class="comment-details">                    
+                        <div class="post">&nbsp;&nbsp;&nbsp;{{comment}}</div>
+                      </div>
+                    {{!-- </div> --}}
+                    {{/each}}
+                  {{/if}}
                 </div>
               </div>
             </div>
