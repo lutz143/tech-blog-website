@@ -1,7 +1,7 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const title = document.querySelector('#post-title').value.trim();
+  const title = document.querySelector('#post-title-input').value.trim();
   const post_content = document.querySelector('#post-content').value.trim();
   // const description = document.querySelector('#project-desc').value.trim();
 

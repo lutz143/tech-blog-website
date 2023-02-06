@@ -29,6 +29,33 @@ body {
   flex: 1 1 auto
 }
 
+#profile-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12px 5.5px 20.5px;
+  
+}
+
+#new-post-btn {
+  height: 35px;
+  margin: 2.5px 4px 2.5px 2.5px;
+  padding-top: 3px;
+  z-index: 100;
+}
+
+#post-title {
+  display: inline-block;
+  margin-top: 5px;
+  width: 95%;
+}
+
+#post-content {
+  display: inline-block;
+  width: 95%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
 .padding {
   padding: 3rem !important
 }
@@ -109,6 +136,11 @@ body {
 .employee-details {
   position: relative;
   top: -40px;
+}
+
+#edit-post-title {
+  width: 50%;
+  height: 60%;
 }
 
 
