@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Edit your post, {{user.username}}. <span style="color:transparent" id="post-id-hidden">{{id}}</span>
+    <h2>Comment on this post, {{user.username}}. <span style="color:transparent" id="post-id-hidden">{{id}}</span>
     </h2>
   </div>
 </div>
@@ -10,9 +10,8 @@
   <div id="sortable">
     <div id="card-title">
       <div class="card-sub"> <img class="card-img-top img-fluid d-flex justify-content-between" id="user-prof-pic" src="./images/Josh Lutz_DC.jpg" alt="Profile Image">
-      <div class="edit-buttons">
-        <a href="/profile" class="btn btn-light d-flex justify-content-between" id="update-post-btn">Update</a>
-        <a class="btn btn-danger d-flex justify-content-danger" id="delete-post-btn">Delete</a>
+      <div class="edit-buttons">        
+        <a class="btn btn-secondary d-flex justify-content-secondary" id="delete-post-btn">Comment</a>
       </div>
       {{!-- <a class="btn btn-light d-flex justify-content-between" id="update-post-btn">Update</a> --}}
     </div>
@@ -22,8 +21,8 @@
             <input class="textarea" name="post-title" type="text" value="{{title}}" />            
           </h4>
           <div class="employee-details">
-            <div class="user-name">Created by {{user.username}} on {{format_date post.date_created}}</div>            
-            <input class="textarea" name="post-content" type="text" value="{{post_content}}" />
+            <div class="user-name">Created by {{username}} {{posts.title}} on {{format_date post.date_created}}</div>            
+            <input class="textarea" name="post-content" type="text" value="Comment on this post, {{username}}" />
           </div>
         </div>
       </div>
@@ -31,5 +30,4 @@
   </div>
 </div>
 
-<script src="/js/editPost.js"></script>
-<script src="/js/deletePost.js"></script>
+<script src="/js/commentPost.js"></script>

@@ -69,6 +69,34 @@ router.get('/posts/:id', withAuth, async (req, res) => {
   }
 });
 
+router.get('/comments/:id', withAuth, async (req, res) => {
+  try {
+    const commentData = await Comment.findByPk(req.params.id, {
+      include: [
+        {
+          model: Post,
+          attributes: ['title', 'post_content'],
+          include: {
+            model: User,
+            attributes: ['username', 'github']
+          }
+        },
+        {
+        model: User,
+        attributes: ['username', 'github']
+        }
+      ],
+    });
+    const comment = commentData.get({ plain: true });
+
+    res.render('singlePost', {
+      ...comment,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 
@@ -119,36 +147,18 @@ router.get('/post', withAuth, async (req, res) => {
 });
 
 
-router.get('/posts/:id', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Post }],
-    });
-
-    const user = userData.get({ plain: true });
-
-    res.render('editPost', {
-      ...user,
-      logged_in: true
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 router.get('/comments/:id', withAuth, async (req, res) => {
+  console.log('in');
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Comment }, { model: Post}],
+      include: [{ model: Post }, { model: Comment }],
     });
 
     const user = userData.get({ plain: true });
 
-    res.render('editPost', {
+    res.render('singlePost', {
       ...user,
       logged_in: true
     });
@@ -156,7 +166,6 @@ router.get('/comments/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route

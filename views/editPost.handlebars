@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Comment on this post, {{username}}. <span style="color:transparent" id="post-id-hidden">{{id}}</span>
+    <h2>Edit your post, {{user.username}}. <span style="color:transparent" id="post-id-hidden">{{id}}</span>
     </h2>
   </div>
 </div>
@@ -21,8 +21,7 @@
           <h4 class="employee-name">
             <input class="textarea" name="post-title" type="text" value="{{title}}" />            
           </h4>
-          <div class="employee-details">
-            <div class="user-name">Created by {{username}} on {{format_date post.date_created}}</div>            
+          <div class="employee-details">            
             <input class="textarea" name="post-content" type="text" value="{{post_content}}" />
           </div>
         </div>

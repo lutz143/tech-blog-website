@@ -2,12 +2,24 @@ const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
+  console.log('comments in');
   try {
-    const commentData = await Comment.findAll(req.params.id, {});
+    const commentData = await Comment.findByPk(req.params.id, {
+      include: [
+        {
+          model: Post,
+          attributes: ['title', 'post_content', 'user_id'],
+        },
+        {
+        model: User,
+        attributes: ['username', 'github']
+        }
+      ],
+    });
     const comment = commentData.get({ plain: true });
 
-    res.render('singleComment', {
+    res.render('singlePost', {
       ...comment,
       logged_in: req.session.logged_in
     });
@@ -15,6 +27,33 @@ router.get('/', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// router.get('/:id', withAuth, async (req, res) => {
+//   console.log('comment in');
+//   try {
+//     const commentData = await Post.findByPk(req.params.id,  {
+//       include: [
+//         {
+//           model: Comment,
+//           attributes: ['comment'],
+//         },
+//         {
+//         model: User,
+//         attributes: ['username', 'github']
+//         }
+//       ],
+//     });
+//     const comment = commentData.get({ plain: true });
+//     console.log(comment);
+//     res.render('singlePost', {
+//       ...comment,
+//       logged_in: req.session.logged_in
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
 
 router.post('/', withAuth, async (req, res) => {
   try {
