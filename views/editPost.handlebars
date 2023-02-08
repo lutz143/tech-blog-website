@@ -1,6 +1,12 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Edit your post, {{user.username}}. <span style="color:transparent" id="post-id-hidden">{{id}}</span>
+    <h2>Edit your post, {{user.username}}. 
+      <span style="color:transparent" id="post-id-hidden">{{id}}</span>
+      {{#if comments}} 
+        {{#each comments}}              
+        <span style="color:transparent" id="post-id-hidden">{{comment_id_test}}</span>
+        {{/each}}
+      {{/if}}
     </h2>
   </div>
 </div>

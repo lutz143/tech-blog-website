@@ -80,11 +80,29 @@ body {
 }
 
 .comment-details {
+  display: flex;
+  justify-content: space-between;
   padding: 2px;
   background-color: #f9f9fa;
   margin-top: 10px;
   margin-bottom: 5px;
   box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.05), 0 -2px 1px -2px rgba(0, 0, 0, 0.04), 0 0 0 -1px rgba(0, 0, 0, 0.05)
+}
+
+.comment-post {
+  display: inline-block;
+  justify-content: space-between;
+  text-align: right;
+}
+
+.comment {
+  text-align: left;
+  display: flex;
+}
+
+.comment-info {
+  text-align: right;
+  font-size: 0.8rem;
 }
 
 .card-sub:hover{
@@ -108,11 +126,6 @@ body {
 
 .post {
   text-align: left;
-}
-
-.comment {
-  text-align: left;
-  display: flex;
 }
 
 #user-prof-pic {

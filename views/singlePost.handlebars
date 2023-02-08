@@ -26,11 +26,15 @@
                       {{!-- <h4 class="employee-name">{{post.title}}</h4> --}}
                       <div class="comment-details">                    
                         <div class="post">&nbsp;&#10095;&nbsp;&nbsp;{{comment}}</div>
+                        <div class="comment-post">
+                          <span class="comment-info">{{user.username}}</span>
+                          <span class="comment-info">{{format_date comment_date}}</span>
+                        </div>
                       </div>
                     {{!-- </div> --}}
                     {{/each}}
                   {{/if}}
-                      <div class="comment-details">                    
+                      <div>                    
                         <div class="comment">
                           &nbsp;&#10095;&nbsp;&nbsp;
                           <textarea class="form-control" name="comment-text" id="comment-input" rows="1">Comment on this post, {{username}}</textarea>

@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: Comment,
-          attributes: ['id', 'comment', 'post_id', 'user_id'],
+          attributes: ['id', 'comment', 'comment_date', 'post_id', 'user_id'],
           include: {
             model: User,
             attributes: ['username', 'github']
@@ -41,7 +41,7 @@ router.get('/posts/:id', withAuth, async (req, res) => {
       include: [
         {
           model: Comment,
-          attributes: ['id', 'comment', 'post_id', 'user_id'],
+          attributes: [['id','comment_id_test'], 'comment', 'post_id', 'user_id'],
           include: {
             model: User,
             attributes: ['username', 'github']
@@ -76,7 +76,7 @@ router.get('/comments/:id', withAuth, async (req, res) => {
       include: [
         {
           model: Comment,
-          attributes: ['id', 'comment', 'user_id'],
+          attributes: ['id', 'comment', 'comment_date','user_id'],
           include: {
             model: User,
             attributes: ['username', 'github']
@@ -91,16 +91,6 @@ router.get('/comments/:id', withAuth, async (req, res) => {
     
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      // include: [
-      //   {
-      //     attributes: ['username', 'josh']
-      //   }
-      // ]
-      // include: [{ model: Post,
-      //   include: {
-      //     model: User,
-      //     attributes: ['username', 'github']
-      //   } }],
     });
 
     const post = postData.get({ plain: true });
@@ -133,8 +123,12 @@ router.get('/profile', withAuth, async (req, res) => {
           attributes: ['username', 'github']
           },
           { model: Comment,
-          attributes: ['comment'] 
-          }]}],
+          attributes: ['comment', 'comment', 'comment_date', 'user_id'],
+          include: {
+            model: User,
+            attributes: ['username', 'github']
+          }}
+          ]}],
     });
 
     const user = userData.get({ plain: true });
