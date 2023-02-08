@@ -35,11 +35,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-
-
-
-
-
 router.get('/posts/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -69,13 +64,19 @@ router.get('/posts/:id', withAuth, async (req, res) => {
   }
 });
 
+
+
+
 router.get('/comments/:id', withAuth, async (req, res) => {
   try {
-    const commentData = await Comment.findByPk(req.params.id, {
+    const postData = await Post.findByPk(req.params.id, {
+      attributes: [
+        ['id', 'post_id'], 'title', 'date_created', 'post_content', ['user_id', 'post_user_id']
+      ],
       include: [
         {
-          model: Post,
-          attributes: ['title', 'post_content'],
+          model: Comment,
+          attributes: ['id', 'comment', 'user_id'],
           include: {
             model: User,
             attributes: ['username', 'github']
@@ -87,10 +88,27 @@ router.get('/comments/:id', withAuth, async (req, res) => {
         }
       ],
     });
-    const comment = commentData.get({ plain: true });
+    
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      // include: [
+      //   {
+      //     attributes: ['username', 'josh']
+      //   }
+      // ]
+      // include: [{ model: Post,
+      //   include: {
+      //     model: User,
+      //     attributes: ['username', 'github']
+      //   } }],
+    });
+
+    const post = postData.get({ plain: true });
+    const user = userData.get({ plain: true });
 
     res.render('singlePost', {
-      ...comment,
+      ...post,
+      ...user,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -147,25 +165,7 @@ router.get('/post', withAuth, async (req, res) => {
 });
 
 
-router.get('/comments/:id', withAuth, async (req, res) => {
-  console.log('in');
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Post }, { model: Comment }],
-    });
 
-    const user = userData.get({ plain: true });
-
-    res.render('singlePost', {
-      ...user,
-      logged_in: true
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
