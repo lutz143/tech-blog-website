@@ -1,6 +1,8 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Comment on this post, {{username}}. <span id="post-id-hidden">{{post_id}}</span>
+    <h2>Comment on this post, {{username}}. 
+      <span style="color:transparent" id="user-id-hidden">{{id}}</span>
+      <span style="color:transparent" id="post-id-hidden">{{post_id}}</span>
     </h2>
   </div>
 </div>
@@ -29,10 +31,10 @@
                     {{/each}}
                   {{/if}}
                       <div class="comment-details">                    
-                        <div class="post">
-                          &nbsp;&#10095;&nbsp;
-                          <textarea class="form-control" id="post-title-input" rows="1">Comment on this post, {{username}}</textarea>
-                          <a href="/comments/{{comment.id}}" class="btn btn-light d-flex justify-content-between" id="comment-post-btn">Comment</a>
+                        <div class="comment">
+                          &nbsp;&#10095;&nbsp;&nbsp;
+                          <textarea class="form-control" name="comment-text" id="comment-input" rows="1">Comment on this post, {{username}}</textarea>
+                          <a href="/comments/{{post_id}}" class="btn btn-secondary btn-sm d-flex justify-content-between" id="comment-post-btn">&#10010;</a>
                         </div>
                       </div>
                   </div>
