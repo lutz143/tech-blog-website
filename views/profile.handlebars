@@ -23,6 +23,13 @@
                     <div class="post">{{post.post_content}}</div>
                   </div>
                 </div>
+                  {{#if comments}} 
+                    {{#each comments}}              
+                      <div class="comment-details">                    
+                        <div class="post">&nbsp;&#10095;&nbsp;&nbsp;{{comment}}</div>
+                      </div>
+                    {{/each}}
+                  {{/if}}
               </div>
             </div>
           </div>        
