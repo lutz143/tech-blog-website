@@ -14,13 +14,12 @@
   {{!-- <div class="flex-column justify-space-around"> --}}
   <header class="display-flex justify-space-between align-center p-2">
     <nav class="navbar navbar-dark" id="header">
-      <a class="mx-2 navbar-brand"><h2>The Tech Blog</h2></a>
+      <a class="mx-2 navbar-brand" href="/"><h2>The Tech Blog</h2></a>
       <form class="d-inline-flex">
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <a href="/profile" class="btn btn-light my-2 m-sm-1" id="home-button" type="submit">Profile</a>       
-        <a href="/" class="btn btn-light my-2 m-sm-1" id="home-button" type="submit">Home</a>
-        <button class="btn btn-light my-2 m-sm-1" id="dashboard-button" type="submit">Dashboard</button>
+        <a href="/" class="btn btn-light my-2 m-sm-1" id="home-button" type="submit">Home</a>        
         <button class="btn btn-danger my-2 m-sm-1" id="logout" type="submit">Logout</button>
         {{else}}
         <a href="/login" class="btn btn-success my-2 m-sm-1" id="login-button" type="submit">Login</a>
@@ -39,7 +38,6 @@
 
   <!-- Render script for logged in users only -->
   <script src="/js/logout.js"></script>
-  <script src="./src/template.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script
@@ -47,6 +45,7 @@
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
     crossorigin="anonymous">
   </script>
+  <script src="./src/template.js"></script>
 </body>
 
 </html>

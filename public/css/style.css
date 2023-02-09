@@ -49,6 +49,28 @@ body {
   width: 95%;
 }
 
+.edit-title-container {
+  display: inline-block;
+  text-align: right;
+  
+}
+
+#edit-post-title {
+  /* display: flex; */
+  
+  text-align: left;
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+  border: 0;
+  padding: 0;
+}
+
+/* #edit-post-title.textarea {
+  /* width: 100%; */
+  /* display: inline-block;
+} */
+
 #post-content {
   display: inline-block;
   width: 95%;
@@ -136,6 +158,7 @@ body {
 }
 
 .employee-name {
+  justify-content: center;
   position: relative;
   text-decoration: none;
   color: var(--white);  
@@ -173,10 +196,7 @@ body {
   top: -40px;
 }
 
-#edit-post-title {
-  width: 50%;
-  height: 60%;
-}
+
 
 
 

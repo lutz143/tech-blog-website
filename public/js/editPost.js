@@ -2,8 +2,8 @@ async function editFormHandler(event) {
   console.log('button pushed');
   event.preventDefault();
 
-  const title = document.querySelector('input[name="post-title"]').value.trim();
-  const post_content = document.querySelector('input[name="post-content"]').value.trim();
+  const title = document.querySelector('#edit-post-title').value.trim();
+  const post_content = document.querySelector('#post-content-edit').value.trim();
   const id = document.querySelector('#post-id-hidden').textContent;
 
   console.log(title);
