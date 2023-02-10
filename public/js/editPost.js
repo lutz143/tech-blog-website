@@ -1,3 +1,4 @@
+// when the edit button is clicked, perform an asynchronous function that finds the hidden post id and title and does a PUT request
 async function editFormHandler(event) {
   console.log('button pushed');
   event.preventDefault();
@@ -6,10 +7,6 @@ async function editFormHandler(event) {
   const post_content = document.querySelector('#post-content-edit').value.trim();
   const id = document.querySelector('#post-id-hidden').textContent;
 
-  console.log(title);
-  console.log(post_content);
-  console.log(id);
-  console.log(`/api/posts/${id}`);
 
   // title && 
   if (title && post_content) {

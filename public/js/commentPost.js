@@ -1,9 +1,10 @@
+// create an asynchronouse function that listend for the click of comment input to clear the text value in the input box
 async function clearCommentBox(event) {
   const textCommentArea = document.querySelector('#comment-input')
   textCommentArea.value = '';
 }
 
-
+// create an asynchronouse function that listend for the click of comment post button to input a new comment through a POST request
 async function commentFormHandler(event) {
   event.preventDefault();
 

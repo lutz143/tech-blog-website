@@ -1,17 +1,12 @@
+// create an asynchronouse function that listend for the click of delete post button to first delete associated comments on a post and then delete the post itself
+
 async function deleteFormHandler(event) {
-  console.log('button pushed');
   event.preventDefault();
 
   const title = document.querySelector('#edit-post-title').value.trim();
   const post_content = document.querySelector('#post-content-edit').value.trim();
   const id = document.querySelector('#post-id-hidden').textContent;
   const commentId = document.querySelector('#comment-id-hidden').textContent;
-
-  console.log(title);
-  console.log(post_content);
-  console.log(id);
-  console.log(commentId);
-  console.log(`/api/posts/${id}`);
 
   
   if (commentId && post_content) {

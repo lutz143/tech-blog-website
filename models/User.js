@@ -1,7 +1,9 @@
+// require the sequelize model and datatypes
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
+// create class User that extends off the required model
 class User extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
@@ -41,6 +43,7 @@ User.init(
     },
   },
   {
+    // create hooks that will hash password
     hooks: {
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);

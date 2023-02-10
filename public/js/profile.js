@@ -1,3 +1,4 @@
+// create an asynchronouse function that listend for the click of new post button to input a new post
 const newFormHandler = async (event) => {
   event.preventDefault();
 
