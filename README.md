@@ -5,6 +5,9 @@
 ## Description
 This project is a full stack example of a front end tech blog site utilizing MVC organization through use of models in backend schema and visuals via handlebars. The user can post new blogs, update prior blogs, delete prior blogs, and comment on other users' blogs upon signing in. A cookie session is generated and automatically terminates after an allotted time.
 
+## Link to Deployed Application
+https://tech-blog-site-143.herokuapp.com/
+
 ## Table of Contents
 
 If your README is long, add a table of contents to make it easy for users to find what they need.
